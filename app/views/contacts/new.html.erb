@@ -1,0 +1,28 @@
+<%= form_with(model: @contact, local: true) do |form| %>
+
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <li><%= @contact.errors.full_messages %></li>
+
+      <%# <% @contact.errors.full_messages.each do |msg| %>
+      <%# 「full_messages」はエラーメッセージの配列を取得。複数あれば「each」で取り出す %>
+
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="contact_name">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="contact_email">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  <div class="contact_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
